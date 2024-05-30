@@ -41,7 +41,7 @@ const router = createBrowserRouter([
         path: "/foodDetails/:id",
         element: <FoodDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/food/${params.id}`),
+          fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`),
       },
       {
         path: "/purchaseFood/:id",
@@ -51,14 +51,13 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/food/${params.id}`),
+          fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`),
       },
       {
         path: "/addedFoods",
         element: <PrivateRoute>
       <MyAddedFoods />
-      </PrivateRoute>
-         ,
+      </PrivateRoute>,
       },
       {
         path: "/updateFood/:id",
@@ -66,7 +65,7 @@ const router = createBrowserRouter([
         <UpdateFood />
       </PrivateRoute>,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/food/${params.id}`),
+          fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`),
       },
       {
         path: "/orderedFoods",
